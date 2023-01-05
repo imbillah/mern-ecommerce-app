@@ -20,7 +20,13 @@ const Navbar = () => {
           size="small"
         ></TextField>
       </Box>
-      <Box flex={1} fontSize={"25px"} fontWeight={"bold"} textAlign={"center"}>
+      <Box
+        flex={1}
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        textAlign={"center"}
+        color={"blue"}
+      >
         ECOMEX
       </Box>
       <Box

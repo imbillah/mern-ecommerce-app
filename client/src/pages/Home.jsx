@@ -1,10 +1,16 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React, { Fragment } from "react";
+import Announcement from "../components/Announcement";
+import ImageSlider from "../components/ImageSlider";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
-    <Navbar/>
-  )
-}
+    <Fragment>
+      <Announcement />
+      <Navbar />
+      <ImageSlider />
+    </Fragment>
+  );
+};
 
-export default Home
+export default Home;
