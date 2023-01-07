@@ -36,15 +36,15 @@ const Navbar = () => {
         justifyContent={"flex-end"}
         marginRight={2}
       >
-        <Button sx={{ marginRight: "5px" }} variant="outlined">
-          Register
-        </Button>
-        <Button sx={{ marginRight: "5px" }} variant="outlined">
-          Log In
-        </Button>
         <Badge badgeContent={1} color="primary" sx={{ cursor: "pointer" }}>
           <ShoppingCartIcon sx={{ color: "blue" }} />
         </Badge>
+        <Button sx={{ marginLeft: "20px" }} variant="outlined">
+          Register
+        </Button>
+        <Button sx={{ marginLeft: "8px" }} variant="outlined">
+          Log In
+        </Button>
       </Box>
     </Box>
   );
