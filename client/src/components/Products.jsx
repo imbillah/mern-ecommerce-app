@@ -1,4 +1,4 @@
-import { Button, Grid, styled } from "@mui/material";
+import { Box, Button, Grid, styled } from "@mui/material";
 import { Container } from "@mui/system";
 import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
@@ -8,9 +8,12 @@ import { popularProducts } from "../assets/fakeDb";
 import ShoppingCart from "@mui/icons-material/ShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 const Products = () => {
-  const iconStyles = {
-    fontSize: "20px",
-  };
+  const GridBox = styled(Box)({
+    display: "grid",
+    gridTemplateColumns: "repeat(4, 1fr)",
+    gap: "15px",
+  });
+
   return (
     <Container
       maxWidth="xl"
@@ -18,15 +21,19 @@ const Products = () => {
         marginTop: "20px",
         background: "#F5F9FB",
         padding: "25px",
-        border: "1px solid red",
       }}
     >
-      <Grid container>
+      <GridBox>
         {popularProducts.map((item) => (
-          <Grid xs={3} key={item.id}>
-            <Card sx={{ minHeight: 350, maxWidth: 300 }}>
+          <Box key={item.id}>
+            <Card sx={{ minHeight: 350 }}>
               <CardCover>
-                <img src={item.img} loading="lazy" alt="" />
+                <img
+                  style={{ maxHeight: 350, objectFit: "cover" }}
+                  src={item.img}
+                  loading="lazy"
+                  alt=""
+                />
               </CardCover>
               <CardCover
                 sx={{
@@ -65,9 +72,9 @@ const Products = () => {
                 </Typography>
               </CardContent>
             </Card>
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </GridBox>
     </Container>
   );
 };
