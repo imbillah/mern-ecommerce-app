@@ -89,7 +89,9 @@ const ProductInfo = () => {
                 <p>Size: </p>
                 <select>
                   <option value="">S</option>
-                  <option value="">M</option>
+                  <option selected value="">
+                    M
+                  </option>
                   <option value="">L</option>
                   <option value="">XL</option>
                   <option value="">XXL</option>
