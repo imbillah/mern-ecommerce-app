@@ -1,3 +1,4 @@
+import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import ProductInfo from "./pages/ProductInfo";
@@ -10,7 +11,7 @@ function App() {
     // <Home />
     // <ProductList />
     // <ProductInfo />
-    <LogIn />
+    <Cart />
   );
 }
 
