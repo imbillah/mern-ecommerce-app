@@ -8,10 +8,9 @@ import Register from "./pages/Register";
 
 function App() {
   return (
-    // <Home />
+    <Home />
     // <ProductList />
     // <ProductInfo />
-    <Cart />
   );
 }
 
