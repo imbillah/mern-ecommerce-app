@@ -3,7 +3,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import userRoute from "./routes/user";
+import userRoute from "./routes/user.js";
+import authRoute from "./routes/auth.js";
 const app = express();
 
 app.use(express.json());
@@ -28,9 +29,20 @@ mongoose.connection.on("disconnected", () => {
   console.log("Mongo server disconnected");
 });
 
-// all routes
-app.use("/api/users", userRoute);
+// all middleware
+app.use("/api", userRoute);
 app.listen(port, () => {
   connect();
   console.log(`Backend Running on ${port}`);
+});
+
+app.use("/auth", authRoute);
+
+// error handler middleware
+app.use((err, req, res, next) => {
+  if (err.message) {
+    res.status(500).send(err.message);
+  } else {
+    res.status(500).send("An error happened! Try Again");
+  }
 });
