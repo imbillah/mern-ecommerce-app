@@ -5,8 +5,11 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import userRoute from "./routes/user.js";
 import authRoute from "./routes/auth.js";
-const app = express();
+import productRoute from "./routes/product.js";
+import orderRoute from "./routes/order.js";
+import cartRoute from "./routes/cart.js";
 
+const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
@@ -25,18 +28,21 @@ const connect = () => {
     console.log(error.message);
   }
 };
-mongoose.connection.on("disconnected", () => {
-  console.log("Mongo server disconnected");
-});
-
-// all middleware
-app.use("/api", userRoute);
+// DB connection
 app.listen(port, () => {
   connect();
   console.log(`Backend Running on ${port}`);
 });
+mongoose.connection.on("disconnected", () => {
+  console.log("Mongo server disconnected");
+});
 
+// my middleware
 app.use("/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use("/api/products", productRoute);
+app.use("/api/carts", cartRoute);
+app.use("/api/orders", orderRoute);
 
 // error handler middleware
 app.use((err, req, res, next) => {
