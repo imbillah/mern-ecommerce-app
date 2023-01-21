@@ -8,7 +8,7 @@ import authRoute from "./routes/auth.js";
 import productRoute from "./routes/product.js";
 import orderRoute from "./routes/order.js";
 import cartRoute from "./routes/cart.js";
-
+import paymentRoute from "./routes/payment.js";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
@@ -43,6 +43,7 @@ app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
+app.use("/api/checkout", paymentRoute);
 
 // error handler middleware
 app.use((err, req, res, next) => {
